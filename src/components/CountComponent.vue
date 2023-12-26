@@ -1,9 +1,140 @@
 <template>
-  <div>
-    <div ref="pixiContainer"></div>
-    <button @click="startAnimation">Start Animation</button>
-    <input v-model="inputNumber" type="number" />
-    <p>{{ inputNumber }}</p>
+  <div class="px-[40px] flex flex-col gap-4" >
+
+    <div class="p-[16px] w-full py-1 bg-tertiary rounded-lg flex flex-col gap-2">
+      <div class="flex w-full">
+  
+        <div class="flex w-full  items-center bg-tertiary flex-col py-[16px] px-[16px]">
+          <div class="flex items-center w-full gap-3 justify-end">
+            <div class="rounded-full bg-secondary text-white py-[6px] px-[14px]">
+              1.60x
+            </div>
+            <div class="rounded-full bg-[#00E700]  py-[6px] px-[14px]">
+              1.60x
+            </div>
+          </div>
+          <div ref="pixiContainer" class="h-[200px] flex items-center justify-center">
+            <p class="text-5xl font-[600] text-white">1.01x</p>
+          </div>
+          <div class="flex items-center py-2 gap-3 justify-between w-full px-[16px] rounded-md  bg-primary">
+            <div class="flex-col gap-2 w-full ">
+            <label for="multiplier" class="text-white">获胜机率</label>
+            <div class="py-2 w-full border-secondary border-[2px] flex  pl-2 pr-3 rounded-md">
+              
+                
+                 <input  v-model="inputNumber" id="multiplier"   type="number" class="w-full focus:outline-none text-white  bg-transparent ">
+                 <img src="../assets/icons/cross.svg" alt="">
+                </div>
+              </div>
+            <div class="flex-col gap-2 w-full ">
+            <label for="chance" class="text-white">获胜机率</label>
+            <div class="py-2 w-full border-secondary border-[2px] flex  pl-2 pr-3 rounded-md">
+              
+                
+                 <input  v-model="inputNumber" id="chance"   type="number" class="w-full focus:outline-none text-white  bg-transparent  ">
+                 <img src="../assets/icons/cross.svg" alt="">
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-full items-center justify-between">
+        <div class="flex items-center gap-3">
+         <img src="../assets/icons/settings.svg" alt="">
+         <img src="../assets/icons/rectangle.svg" alt="">
+         <img src="../assets/icons/graph.svg" alt="">
+         <img src="../assets/icons/star.svg" alt="">
+        </div>
+        <img src="../assets/icons/logo.svg" alt="">
+        <p class="font-[600] text-[14px] text-white">公平性</p>
+      </div>
+      
+      
+      
+    </div>
+    <div class="flex items-center  bg-tertiary w-full rounded-[8px] justify-between px-[22px]">
+<div class="flex gap-[5px]  rounded-md p-[20px]  text-[16px] text-white items-center">
+  <span >Limbo</span>
+  <span>Stake</span>
+  <span>原创游戏</span>
+</div>
+<div class="flex gap-4 pr-[10px]">
+  <div class="flex rounded-full bg-primary p-2">
+  <div class="flex gap-1 items-center">
+    <img src="../assets/icons/tournament.svg" alt="">
+    <p class="text-[12px] text-[#B1BAD3] font-[600]">
+      1,000.00x
+    </p>
+    <img src="../assets/icons/incognito.svg" alt="">
+    <p class="text-[#B1BAD3]">隐身</p>
+ 
+  </div>
+</div>
+<img src="../assets/icons/right_chevrolet.svg" alt="">
+
+
+</div>
+    </div>
+    <div class="flex items-center justify-between w-full">
+      <div class="bg-tertiary rounded-full p-[3px]">
+        <button class="rounded-full py-[10px] text-white px-[20px] ">
+          我的投注
+        </button>
+        <button class="rounded-full py-[10px] text-white px-[20px] ">
+          所有投注
+        </button>
+        <button class=" bg-primary rounded-full py-[10px] text-white px-[20px] ">
+          风云榜
+        </button>
+        <button class="rounded-full py-[10px] text-white px-[20px] ">
+          竞赛排行榜
+        </button>
+      </div>
+      <div class="flex items-center bg-tertiary border-[1px] py-2 px-1 gap-1  border-primary">
+        <p class="text-[12px] text-white   rounded-md px-1">10</p>
+        <img src="../assets/icons/down_arrow.svg" alt="">
+      </div>
+    </div>
+    <table class="w-full">
+      <thead>
+
+        <tr class="text-white ">
+          <th class="text-start w-1/6">游戏</th>
+          <th class="text-center w-1/6">玩家</th>
+          <th class="text-center w-1/6">时间</th>
+          <th class="text-end w-1/6">投注额</th>
+          <th class="text-end w-1/6">乘数</th>
+          <th class="text-end w-1/6">支付额</th>
+        </tr>
+      </thead>
+      <tbody>
+       
+  <tr v-for="(i, index) in [1, 2, 3, 4, 5, 6]" :class="{ 'bg-secondary': index % 2 === 0 }" :style="{ 'height': '50px', 'padding': '2px','border-radius':'20px' }" >
+    <td class="text-start text-white">
+      <p class="text-[14px] gap-1 flex items-center pl-2"> <img src="../assets/icons/bot.svg" alt=""> Crash</p>
+    </td>
+    <td class="text-end text-white">
+      <p class="text-[14px] items-center justify-center flex gap-1"><img src="../assets/icons/incognito.svg" alt=""> 隐身</p>
+    </td>
+    <td class="text-center text-white">
+      <p class="text-[14px]">15:33</p>
+    </td>
+    <td class="text-end text-white">
+      <p class="text-[14px] flex items-center gap-1"><img src="../assets/icons/incognito.svg" alt=""> 2011,232472...</p>
+    </td>
+    <td class="text-end text-white">
+      <p class="text-[14px] ">13.10x</p>
+    </td>
+    <td>
+      <p class="text-[14px] text-white text-end">
+        -2011,232472...
+      </p>
+    </td>
+  </tr>
+
+
+      </tbody>
+    </table>
   </div>
 </template>
 

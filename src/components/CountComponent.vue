@@ -1,10 +1,55 @@
 <template>
-  <div class="px-[40px] flex flex-col gap-4" >
+  <div class="px-[40px] flex flex-col py-2 gap-4" >
 
-    <div class="p-[16px] w-full py-1 bg-tertiary rounded-lg flex flex-col gap-2">
-      <div class="flex w-full">
+    <div class="p-[16px] pt-0 pl-0 w-full py-1 bg-tertiary rounded-lg flex flex-col gap-">
+      <div class="flex pt-0 w-full">
+        <div class="flex-col   px-2 rounded-t-lg rounded-r-none bg-secondary py-3 min-w-fit">
+          <div class="bg-tertiary flex w rounded-full p-[3px]">
   
-        <div class="flex w-full  items-center bg-tertiary flex-col py-[16px] px-[16px]">
+        <button class="  bg-primary rounded-full py-[10px] text-white px-[20px] ">
+          手动投注
+        </button>
+        <button class="rounded-full py-[10px] text-white px-[20px] ">
+          自动投注
+        </button>
+      </div>
+      <div class="flex mt-2 px-2 items-center justify-between">
+        <p class="text-[12px] text-[#B1BAD3] font-[600]">
+          投注额
+        </p>
+        <p class="text-[12px] text-[#B1BAD3] font-[600]">
+          US$0.00
+        </p>
+      </div>
+      <div class="flex mt-2 w-full border-[#2F4553] rounded-md bg-tertiary border-[3px]">
+      <input type="text" class="bg-transparent h-[40px] flex-1 focus:outline-none text-white" >
+      <button class="text-white text-[14px] px-[16px] bg-[#2F4553]">½</button>
+      <div class="h-[20px] w-[2px] bg-tertiary"></div>
+      <button class="text-white text-[14px] px-[16px] bg-[#2F4553]">2x</button>
+      </div>
+      <div class="flex mt-2 px-2 items-center justify-between">
+        <p class="text-[12px] text-[#B1BAD3] font-[600]">
+          投注额
+        </p>
+        <p class="text-[12px] text-[#B1BAD3] font-[600]">
+          US$0.00
+        </p>
+      </div>
+      <div class="flex mt-2 w-full bg-[#2F4553] rounded-md ">
+      <input type="text" class="bg-transparent h-[40px] flex-1 focus:outline-none text-white" >
+      
+      <img src="../assets/icons/bitcoin.svg" alt="" class="p-2">
+      </div>
+      
+      <button type="text" class="flex justify-center items-center mt-2 w-full bg-[#00E701] rounded-md h-[40px] text-tertiary flex-1 " @click="startAnimation">
+        投注
+      </button>
+      
+      
+  
+
+        </div>
+        <div class="flex w-full   items-center bg-tertiary flex-col py-[16px] px-[16px]">
           <div class="flex items-center w-full gap-3 justify-end">
             <div class="rounded-full bg-secondary text-white py-[6px] px-[14px]">
               1.60x
@@ -38,7 +83,7 @@
           </div>
         </div>
       </div>
-      <div class="flex w-full items-center justify-between">
+      <div class="flex w-full items-center p-[20px]  justify-between">
         <div class="flex items-center gap-3">
          <img src="../assets/icons/settings.svg" alt="">
          <img src="../assets/icons/rectangle.svg" alt="">
@@ -167,7 +212,7 @@ export default {
         width: 400,
         height: 200,
         antialias: true,
-        backgroundColor: 0x00000000, // Transparent background
+        backgroundColor: 0x0F212E, // Transparent background
       });
 
       // Append the Pixi Application's view to the container

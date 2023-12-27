@@ -321,10 +321,14 @@
 </div>
   </div>
   <div class="w-full h-[2px] bg-[#2F4553]"></div>
-  <div class="flex items-center justify-center">
-    <p class="text-white">
-      &copy;
+  <div class="flex items-center flex-col gap-2 justify-center">
+    <img src="../assets/icons/stake.png" class="w" >
+    <p class="text-[#D9D9D9]">
+      &copy; 2023 Stake.com | 版权所有
 
+    </p>
+    <p class="text-[#D9D9D9]">
+      1 BTC = $42,716.79 1 BTC = $42,498.94 
     </p>
   </div>
 

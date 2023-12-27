@@ -181,7 +181,7 @@
       </tbody>
     </table>
     </div>
- <div class="flex gap-3 px-[30px] flex-col">
+    <div class="flex gap-[40px] pt-[20px] px-[30px] w-full flex-col">
   <div class="grid grid-cols-6 gap-[51px]">
       <div class="flex-col flex items-start">
         <p class="font-[600] py-2 text-white text-[14px]">
@@ -200,7 +200,8 @@
       </div>
       <div class="flex-col flex items-start">
         <p class="font-[600] py-2 text-white text-[14px]">
-          娱乐城
+          娱乐城  
+   
         </p>
         <p class="font-[600] text-[#B1BAD3] text-[14px]">
           游戏
@@ -305,8 +306,11 @@
        </p>
      </div>
     </div>
+    <div class="w-full h-[2px] bg-[#2F4553]"></div>
     <CurrencyComponent></CurrencyComponent>
-    <div class="flex w-full justify-between items-center">
+    <div class="w-full h-[2px] bg-[#2F4553]"></div>
+
+    <div class="flex w-full border-y-[1.5px] py-3 border-[#2F4553] justify-between items-center">
 <div class="flex items-center w-full justify-between">
   <img src="../assets/icons/verify.png" alt="" class="h-[80px]">
   <img src="../assets/icons/alfa-logo.svg" alt="" class="h-[60px]">
@@ -314,6 +318,8 @@
   <img src="../assets/icons/ufc-partner.svg" alt="" class="h-[60px]">
 </div>
   </div>
+  <div class="w-full h-[2px] bg-[#2F4553]"></div>
+
  </div>
     
  

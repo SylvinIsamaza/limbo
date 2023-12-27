@@ -1,5 +1,7 @@
 <template>
-  <div class=" bg-tertiary  flex flex-col py-2 gap-4" >
+
+  <div class=" flex flex-col flex-1 w-full py-0 gap-4" >
+    <HeaderComponent/>
     <div class="bg-[#1A2C38] flex flex-col gap-4 px-[40px] ">
       <div class="p-[16px] pt-0 pl-0 w-full py-1 bg-tertiary rounded-lg flex flex-col gap-">
       <div class="flex pt-0 w-full">
@@ -181,7 +183,7 @@
       </tbody>
     </table>
     </div>
-    <div class="flex gap-[40px] pt-[20px] px-[30px] w-full flex-col">
+    <div class=" bg-tertiary flex gap-[40px] pt-[20px] px-[30px] flex-1 w-full flex-col">
   <div class="grid grid-cols-6 gap-[51px]">
       <div class="flex-col flex items-start">
         <p class="font-[600] py-2 text-white text-[14px]">
@@ -330,10 +332,12 @@
 
 <script>
 import * as PIXI from 'pixi.js';
+import HeaderComponent from "../components/Header/Header.vue"
 import CurrencyComponent from './Currency.vue';
 export default {
   components:{
-CurrencyComponent
+    CurrencyComponent,
+HeaderComponent
   },
   data() {
     return {

@@ -3,7 +3,7 @@
     <div class="selected flex w-fit gap-2" :class="{ open: open }" @click="open = !open">
       <div class="flex w-full gap-1 items-center">
         {{ selected.name }}
-      <img :src="'/src/assets/icons/'+selected.image" alt="" class="w-[20px] h-[20px]">
+      <img :src="'/assets/icons/'+selected.image" alt="" class="w-[20px] h-[20px]">
       </div>
       
       

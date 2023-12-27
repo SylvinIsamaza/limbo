@@ -6,16 +6,15 @@
       <div class="p-[16px] pt-0 pl-0 w-full py-1 bg-tertiary rounded-lg flex flex-col gap-">
       <div class="flex pt-0 w-full">
         <div class="flex-col   px-2 rounded-t-lg rounded-r-none bg-secondary py-3 min-w-fit">
-          <div class="bg-tertiary flex w rounded-full p-[3px]">
-  
-        <button class="  bg-primary rounded-full py-[10px] text-white px-[20px] ">
-          手动投注
+          <div class="bg-tertiary gap-1 flex w rounded-full p-[3px]">
+         
+        <button v-for="(i,index) in [{name:'手动投注'},{name:'自动投注'}]" :class=" `flex-1 rounded-full py-[10px] text-white px-[20px] ${firstGroupActiveButton==parseInt(index)?'bg-primary':''}`" @click="()=>{firstGroupActiveButton=index}">
+          {{i.name}}
         </button>
-        <button class="rounded-full py-[10px] text-white px-[20px] ">
-          自动投注
-        </button>
+    
       </div>
-      <div class="flex mt-2 px-2 items-center justify-between">
+
+      <div  class="flex mt-2 px-2 items-center justify-between">
         <p class="text-[12px] text-[#B1BAD3] font-[600]">
           投注额
         </p>
@@ -23,13 +22,55 @@
           US$0.00
         </p>
       </div>
-      <div class="flex mt-2 w-full border-[#2F4553] rounded-md bg-tertiary border-[3px]">
+      <div  class="flex mt-2 w-full border-[#2F4553] rounded-md bg-tertiary border-[3px]">
       <input type="text" class="bg-transparent h-[40px] flex-1 focus:outline-none text-white" >
       <button class="text-white text-[14px] px-[16px] bg-[#2F4553]">½</button>
       <div class="h-[20px] w-[2px] bg-tertiary"></div>
       <button class="text-white text-[14px] px-[16px] bg-[#2F4553]">2x</button>
       </div>
-      <div class="flex mt-2 px-2 items-center justify-between">
+      <div  v-if="firstGroupActiveButton==1" class="flex mt-2 px-2 items-center justify-between">
+        <p class="text-[12px] text-[#B1BAD3] font-[600]">
+          投注次数
+        </p>
+     
+      </div>
+      
+      <div v-if="firstGroupActiveButton==1"  class="flex mt-2 w-full border-[#2F4553] rounded-md bg-tertiary border-[3px]">
+      <input type="text" class="bg-transparent h-[40px] flex-1 focus:outline-none text-white" >
+     
+      <button ><img src="../assets/icons/infinity.svg" alt="" class="pr-2"></button>
+      </div>
+      
+      <div  v-if="firstGroupActiveButton==1" class="flex mt-2 px-2 items-center justify-between">
+        <p class="text-[12px] text-[#B1BAD3] font-[600]">
+          止盈
+        </p>
+        <p class="text-[12px] text-[#B1BAD3] font-[600]">
+          US$0.00
+        </p>
+     
+      </div>
+      
+      <div v-if="firstGroupActiveButton==1"  class="flex mt-2 w-full border-[#2F4553] rounded-md bg-tertiary border-[3px]">
+      <input type="text" class="bg-transparent h-[40px] flex-1 focus:outline-none text-white" >
+     
+      <button ><img src="../assets/icons/bitcoin.svg" alt="" class="pr-2"></button>
+      </div>
+      <div  v-if="firstGroupActiveButton==1" class="flex mt-2 px-2 items-center justify-between">
+        <p class="text-[12px] text-[#B1BAD3] font-[600]">
+          止损
+        </p>
+        <p class="text-[12px] text-[#B1BAD3] font-[600]">
+          US$0.00
+        </p>
+      </div>
+      
+      <div v-if="firstGroupActiveButton==1"  class="flex mt-2 w-full border-[#2F4553] rounded-md bg-tertiary border-[3px]">
+      <input type="text" class="bg-transparent h-[40px] flex-1 focus:outline-none text-white" >
+     
+      <button ><img src="../assets/icons/bitcoin.svg" alt="" class="pr-2"></button>
+      </div>
+      <div v-if="firstGroupActiveButton==0" class="flex mt-2 px-2 items-center justify-between">
         <p class="text-[12px] text-[#B1BAD3] font-[600]">
           投注额
         </p>
@@ -37,14 +78,19 @@
           US$0.00
         </p>
       </div>
-      <div class="flex mt-2 w-full bg-[#2F4553] rounded-md ">
+      <div v-if="firstGroupActiveButton==0" class="flex mt-2 w-full bg-[#2F4553] rounded-md ">
       <input type="text" class="bg-transparent h-[40px] flex-1 focus:outline-none text-white" >
       
       <img src="../assets/icons/bitcoin.svg" alt="" class="p-2">
       </div>
       
-      <button type="text" class="flex justify-center items-center mt-2 w-full bg-[#00E701] rounded-md h-[40px] text-tertiary flex-1 " @click="startAnimation">
+      <button  type="text" class="flex justify-center items-center mt-2 w-full bg-[#00E701] rounded-md h-[40px] text-tertiary flex-1 " @click="startAnimation">
+       <p v-if="firstGroupActiveButton==0">
         投注
+      </p> 
+      <p v-if="firstGroupActiveButton==1">
+        开始自动投注
+      </p> 
       </button>
       
       
@@ -124,18 +170,10 @@
     </div>
     <div class="flex items-center justify-between w-full">
       <div class="bg-tertiary rounded-full p-[3px]">
-        <button class="rounded-full py-[10px] text-white px-[20px] ">
-          我的投注
+        <button v-for="(i,index) in [{name:'我的投注'},{name:'所有投注'},{name:'风云榜'},{name:'竞赛排行榜'}]" :class=" `flex-1 rounded-full py-[10px] text-white px-[20px] ${secondGroupActiveButton==parseInt(index)?'bg-primary':''}`" @click="()=>{secondGroupActiveButton=index}">
+          {{i.name}}
         </button>
-        <button class="rounded-full py-[10px] text-white px-[20px] ">
-          所有投注
-        </button>
-        <button class=" bg-primary rounded-full py-[10px] text-white px-[20px] ">
-          风云榜
-        </button>
-        <button class="rounded-full py-[10px] text-white px-[20px] ">
-          竞赛排行榜
-        </button>
+   
       </div>
       <div class="flex items-center bg-tertiary border-[1px] py-2 px-1 gap-1  border-primary">
         <p class="text-[12px] text-white   rounded-md px-1">10</p>
@@ -344,6 +382,8 @@
 import * as PIXI from 'pixi.js';
 import HeaderComponent from "../components/Header/Header.vue"
 import CurrencyComponent from './Currency.vue';
+
+
 export default {
   components:{
     CurrencyComponent,
@@ -351,7 +391,9 @@ HeaderComponent
   },
   data() {
     return {
-      app:null,
+      app: null,
+      firstGroupActiveButton: 0,
+      secondGroupActiveButton: 2,
       inputNumber: 1.01, // Initialize with an empty string or any default value
     };
   },

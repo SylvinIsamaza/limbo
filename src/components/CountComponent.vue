@@ -1,8 +1,8 @@
 <template>
 
-  <div class=" flex flex-col flex-1 w-full py-0 gap-4" >
+  <div class="  flex flex-col justify-center items-center flex-1 w-full py-0 gap-4" >
     <HeaderComponent/>
-    <div class="bg-[#1A2C38] flex flex-col gap-4 px-[40px] ">
+    <div class="bg-[#1A2C38] lg:w-[1200px] flex flex-col gap-4 px-[40px] ">
       <div class="p-[16px] pt-0 pl-0 w-full py-1 bg-tertiary rounded-lg flex flex-col gap-">
       <div class="flex pt-0 w-full">
         <div class="flex-col   px-2 rounded-t-lg rounded-r-none bg-secondary py-3 min-w-fit">
@@ -183,8 +183,8 @@
       </tbody>
     </table>
     </div>
-    <div class=" bg-tertiary flex gap-[40px] pt-[20px] px-[30px] flex-1 w-full flex-col">
-  <div class="grid grid-cols-6 gap-[51px]">
+    <div class=" bg-tertiary items-center  flex gap-[40px] pt-[20px] px-[30px] flex-1 w-full flex-col">
+  <div class="grid grid-cols-6 lg:w-[1200px] gap-[51px]">
       <div class="flex-col flex items-start">
         <p class="font-[600] py-2 text-white text-[14px]">
           体育
@@ -308,11 +308,11 @@
        </p>
      </div>
     </div>
-    <div class="w-full h-[2px] bg-[#2F4553]"></div>
+    <div class="w-full lg:w-[1200px] h-[2px] bg-[#2F4553]"></div>
     <CurrencyComponent></CurrencyComponent>
     <div class="w-full h-[2px] bg-[#2F4553]"></div>
 
-    <div class="flex w-full border-y-[1.5px] py-3 border-[#2F4553] justify-between items-center">
+    <div class="flex lg:w-[1200px] w-full border-y-[1.5px] py-3 border-[#2F4553] justify-between items-center">
 <div class="flex items-center w-full justify-between">
   <img src="../assets/icons/verify.png" alt="" class="h-[80px]">
   <img src="../assets/icons/alfa-logo.svg" alt="" class="h-[60px]">
@@ -321,6 +321,12 @@
 </div>
   </div>
   <div class="w-full h-[2px] bg-[#2F4553]"></div>
+  <div class="flex items-center justify-center">
+    <p class="text-white">
+      &copy;
+
+    </p>
+  </div>
 
  </div>
     
@@ -364,7 +370,7 @@ HeaderComponent
         width: 400,
         height: 200,
         antialias: true,
-        backgroundColor: 0x0F212E, // Transparent background
+        backgroundColor: 0x071D2A, // Transparent background
       });
 
       // Append the Pixi Application's view to the container

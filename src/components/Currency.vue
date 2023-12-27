@@ -1,5 +1,5 @@
 <template>
-<div class="flex w-full items-center justify-between">
+<div class="flex w-full lg:w-[1200px] items-center justify-between">
   <img src="../assets/icons/litecoin.svg" alt="" class="h-[40px]">
   <img src="../assets/icons/bitcoinicon.svg" alt="" class="h-[40px]">
   <img src="../assets/icons/ethereum.svg" alt="" class="h-[40px]">

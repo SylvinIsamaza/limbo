@@ -1,6 +1,7 @@
 <template>
-  <div class="flex  sticky w-full top-0 py-3 left-0 bg-[#1A2C38] shadow-md  items-center justify-between">
-    <p class="text-[30px] text-white">
+  <div class="flex   sticky w-full  top-0 py-3 left-0 bg-[#1A2C38] shadow-md  items-center justify-center">
+    <div class="flex w-full justify-between lg:w-[1200px]">
+      <p class="text-[30px] text-white">
       Logo
     </p>
     <div class="flex items-center">
@@ -33,6 +34,8 @@
 
 
     </div>
+    </div>
+
   </div>
 </template>
 

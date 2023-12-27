@@ -5,7 +5,7 @@
     <div class="bg-[#1A2C38] lg:w-[1200px] flex flex-col gap-4 px-[40px] ">
       <div class="p-[16px] pt-0 pl-0 w-full py-1 bg-tertiary rounded-lg flex flex-col gap-">
       <div class="flex pt-0 w-full">
-        <div class="flex-col   px-2 rounded-t-lg rounded-r-none bg-secondary py-3 min-w-fit">
+        <div class="flex-col   px-2 rounded-l-lg rounded-b-none rounded-r-none   bg-secondary py-3 min-w-fit">
           <div class="bg-tertiary gap-1 flex w rounded-full p-[3px]">
          
         <button v-for="(i,index) in [{name:'手动投注'},{name:'自动投注'}]" :class=" `flex-1 rounded-full py-[10px] text-white px-[20px] ${firstGroupActiveButton==parseInt(index)?'bg-primary':''}`" @click="()=>{firstGroupActiveButton=index}">
@@ -39,6 +39,38 @@
       <input type="text" class="bg-transparent h-[40px] flex-1 focus:outline-none text-white" >
      
       <button ><img src="../assets/icons/infinity.svg" alt="" class="pr-2"></button>
+      </div>     <div  v-if="firstGroupActiveButton==1" class="flex mt-2 px-2 items-center justify-between">
+        <p class="text-[12px] text-[#B1BAD3] font-[600]">
+          止盈
+        </p>
+        <p class="text-[12px] text-[#B1BAD3] font-[600]">
+          US$0.00
+        </p>
+     
+      </div>
+      
+      <div v-if="firstGroupActiveButton==1"  class="flex mt-2 w-full border-[#2F4553] rounded-md bg-tertiary border-[3px]">
+        <input type="text" class="bg-transparent h-[40px] flex-1 focus:outline-none text-white" >
+      <button class="text-white text-[14px] px-[16px] bg-[#2F4553]">½</button>
+      <div class="h-[20px] w-[2px] bg-tertiary"></div>
+      <button class="text-white text-[14px] px-[16px] bg-[#2F4553]">2x</button>
+      </div>
+      <div  v-if="firstGroupActiveButton==1" class="flex mt-2 px-2 items-center justify-between">
+        <p class="text-[12px] text-[#B1BAD3] font-[600]">
+          止损
+        </p>
+        <p class="text-[12px] text-[#B1BAD3] font-[600]">
+          US$0.00
+        </p>
+      </div>
+      
+      <div v-if="firstGroupActiveButton==1"  class="flex mt-2 w-full border-[#2F4553] rounded-md bg-primary border-[3px] pr-2">
+        <button class="text-white text-[14px] bg-tertiary px-[14px] rounded-md">重置</button>
+      
+        <button class="text-white text-[14px] px-[20px] bg-[#2F4553]">增加：</button>
+        <div  class="bg-transparent h-[40px] flex-1 focus:outline-none text-white flex items-center  px-1" >0</div>
+        <img src="../assets/icons/percentage.svg" alt="">
+
       </div>
       
       <div  v-if="firstGroupActiveButton==1" class="flex mt-2 px-2 items-center justify-between">
@@ -51,10 +83,13 @@
      
       </div>
       
-      <div v-if="firstGroupActiveButton==1"  class="flex mt-2 w-full border-[#2F4553] rounded-md bg-tertiary border-[3px]">
-      <input type="text" class="bg-transparent h-[40px] flex-1 focus:outline-none text-white" >
-     
-      <button ><img src="../assets/icons/bitcoin.svg" alt="" class="pr-2"></button>
+      <div v-if="firstGroupActiveButton==1"  class="flex mt-2 w-full border-[#2F4553] rounded-md bg-primary border-[3px] pr-2">
+        <button class="text-white text-[14px] bg-tertiary px-[14px] rounded-md">重置</button>
+      
+        <button class="text-white text-[14px] px-[20px] bg-[#2F4553]">增加：</button>
+        <div  class="bg-transparent h-[40px] flex-1 focus:outline-none text-white flex items-center  px-1" >0</div>
+        <img src="../assets/icons/percentage.svg" alt="">
+
       </div>
       <div  v-if="firstGroupActiveButton==1" class="flex mt-2 px-2 items-center justify-between">
         <p class="text-[12px] text-[#B1BAD3] font-[600]">
@@ -93,8 +128,16 @@
       </p> 
       </button>
       
+            
+      <button v-if="firstGroupActiveButton==1"  type="text" class="flex justify-center items-center mt-2 w-full bg-[#00E701] rounded-md h-[40px] text-tertiary flex-1 " @click="startAnimation">
+      
+      <p >
+        开始自动投注
+      </p> 
+      </button>
       
   
+      ]
 
         </div>
         <div class="flex w-full   items-center bg-tertiary flex-col py-[16px] px-[16px]">
@@ -106,7 +149,7 @@
               1.60x
             </div>
           </div>
-          <div ref="pixiContainer" class="h-[200px] bg-[#0F212E] flex items-center justify-center">
+          <div ref="pixiContainer" class="h-[510px] bg-tertiary flex items-center justify-center">
             <p class="text-5xl font-[600] text-white">1.01x</p>
           </div>
           <div class="flex items-center py-2 gap-3 justify-between w-full px-[16px] rounded-md  bg-primary">
@@ -394,16 +437,30 @@ HeaderComponent
       app: null,
       firstGroupActiveButton: 0,
       secondGroupActiveButton: 2,
-      inputNumber: 1.01, // Initialize with an empty string or any default value
+      inputNumber: 1.01,
+      play:true
     };
   },
   methods: {
+
+   intervalBet() {
+      setInterval(() => {
+        
+        this.startAnimation()
+      }, 1000);
+    },
     startAnimation() {
+    if (this.firstGroupActiveButton == 0) {
       if (this.app) {
         this.app.destroy(); // Destroy the existing PIXI.Application and release its WebGL context
       }
+
       this.initializePixi();
-    },
+    } else {
+      // Using setInterval to run startAnimation() every 3000 milliseconds
+      
+    }
+  },
     initializePixi() {
       // Remove the previous Pixi container
       const previousContainer = this.$refs.pixiContainer;

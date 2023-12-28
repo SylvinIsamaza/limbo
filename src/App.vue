@@ -104,7 +104,7 @@
 <script >
 // import { Icon } from '@iconify/vue';
 import PixiCounter from "./components/CountComponent.vue";
-import Close from "/assets/icons/close.svg"
+import Close from "./assets/icons/close.svg"
 import SearchComponent from "./components/SearchComponent.vue"
 export let showMenu = false
 export let showNotfication = false

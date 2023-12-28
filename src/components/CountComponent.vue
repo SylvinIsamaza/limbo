@@ -1,11 +1,12 @@
 <template>
 
-  <div class="  flex flex-col justify-center items-center flex-1 w-full py-0 gap-4" >
-    <HeaderComponent/>
-    <div class="bg-[#1A2C38] lg:w-[1200px] flex flex-col gap-4 px-[40px] ">
+<div class="flex flex-col h-screen overflow-auto ">
+
+
+    <div class="bg-[#1A2C38] lg:w-[1200px] flex-1 flex flex-col gap-4 px-[40px] ">
       <div class="p-[16px] pt-0 pl-0 w-full py-1 bg-tertiary rounded-lg flex flex-col gap-">
       <div class="flex pt-0 w-full">
-        <div class="flex-col   px-2 rounded-l-lg rounded-b-none rounded-r-none   bg-secondary py-3 min-w-fit">
+        <div class="flex-col   px-2 rounded-l-lg rounded-b-none rounded-r-none   bg-secondary py-3 ">
           <div class="bg-tertiary gap-1 flex w rounded-full p-[3px]">
          
         <button v-for="(i,index) in [{name:'手动投注'},{name:'自动投注'}]" :class=" `flex-1 rounded-full py-[10px] text-white px-[20px] ${firstGroupActiveButton==parseInt(index)?'bg-primary':''}`" @click="()=>{firstGroupActiveButton=index}">
@@ -270,103 +271,200 @@
         <p class="font-[600] py-2 text-white text-[14px]">
           体育
         </p>
+      <a href="https://stake.com/zh/sports/home" class="w-fit">
+        
         <p class="font-[600] text-[#B1BAD3] text-[14px]">
           主页
         </p>
+      </a>
+      <a href="https://stake.com/zh/sports/live" class="w-fit">
+
         <p class="font-[600] text-[#B1BAD3] text-[14px]">
           滚球
         </p>
+      </a>
+      <a href="https://stake.com/zh/policies/sportsbook" class="w-f">
+
         <p class="font-[600] text-[#B1BAD3] text-[14px]">
          
           体育博彩规则
         </p>
+      </a>
+ 
       </div>
       <div class="flex-col flex items-start">
         <p class="font-[600] py-2 text-white text-[14px]">
           娱乐城  
    
         </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
-          游戏
-        </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
-          VIP俱乐部
-        </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
-         
-          促销活动
-        </p>
+        <a href="https://stake.com/zh/casino/home" class="w-f">
+
+
+          <p class="font-[600] text-[#B1BAD3] text-[14px]">
+            游戏
+          </p>
+</a>
+    <a href="https://stake.com/zh/vip-club" class="w-fit">
+      
+      <p class="font-[600] text-[#B1BAD3] text-[14px]">
+        VIP俱乐部
+      </p>
+    </a>
+    <a href="https://stake.com/zh/promotions" class="w-fit">
+
+      <p class="font-[600] text-[#B1BAD3] text-[14px]">
+       
+        促销活动
+      </p>
+    </a>
       </div>
       <div class="flex-col flex items-start">
         <p class="font-[600] py-2 text-white text-[14px]">
           支持
         </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
-          公平性
-        </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
-          联盟计划
-        </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
+        <a href="https://stake.com/zh/provably-fair" class="w-fit">
+
+          <p class="font-[600] text-[#B1BAD3] text-[14px]">
+            公平性
+          </p>
+        </a>
+        <a href="https://stake.com/zh/affiliate">
+
+          <p class="font-[600] text-[#B1BAD3] text-[14px]">
+            联盟计划
+          </p>
+        </a>
+        <a href="https://www.begambleaware.org/">
+
+<p class="font-[600] text-[#B1BAD3] text-[14px]">
+  负责任博彩
+</p>
+</a>
+<a href="https://stake.com/zh/responsible-gambling">
+  <p class="font-[600] text-[#B1BAD3] text-[14px]">
          
-          负责任博彩
-        </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
+         在线支持
+      </p>
+</a>
+
+  <p class="font-[600] flex items-center gap-2 text-[#B1BAD3] text-[14px]">
          
-          在线支持
-       </p>
-       <p class="font-[600] flex items-center gap-2 text-[#B1BAD3] text-[14px]">
-         
-        帮助中心 <img src="../assets/icons/open.svg" alt="">
-       </p>
-      </div>
-      <div class="flex-col flex items-start">
-        <p class="font-[600] py-2 text-white text-[14px]">
-          支持
+         帮助中心 <img src="../assets/icons/open.svg" alt="">
         </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
-          公平性
-        </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
-          联盟计划
-        </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
+
+      
+<a href="https://help.stake.com/">
+  <p class="font-[600] flex items-center gap-2 text-[#B1BAD3] text-[14px]">
          
-          负责任博彩
+         帮助中心 <img src="../assets/icons/open.svg" alt="">
         </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
-         
-          在线支持
-       </p>
-       <p class="font-[600] flex items-center gap-2 text-[#B1BAD3] text-[14px]">
-         
-        帮助中心
-       </p>
-      </div>
+</a>
      
+
+       
+     
+      </div>
       <div class="flex-col flex items-start">
-        <p class="font-[600] text-white py-2 text-[14px]">
+        <p class="font-[600] py-2 text-white text-[14px]">
+          社区
+        </p>
+        <a href="https://stake.com/zh/blog" class="w-fit">
+
+          <p class="font-[600] text-[#B1BAD3] text-[14px]">
+            博客
+          </p>
+        </a>
+        <a href="https://stakecommunity.com/">
+
+          <p class="font-[600] text-[#B1BAD3] text-[14px]">
+            论坛
+          </p>
+        </a>
+        <a href="https://facebook.com/StakeCasino">
+
+<p class="font-[600] text-[#B1BAD3] flex gap-2 text-[14px]">
+  Facebook <img src="../assets/icons/open.svg" alt="">
+</p>
+</a>
+<a href="https://twitter.com/stake">
+  <p class="font-[600] text-[#B1BAD3] flex gap-2 text-[14px]">
+         
+         Twitter <img src="../assets/icons/open.svg" alt="">
+      </p>
+</a>
+
+
+      
+<a href="https://instagram.com/stake/">
+  <p class="font-[600] flex items-center gap-2 text-[#B1BAD3] text-[14px]">
+         
+         Instagram<img src="../assets/icons/open.svg" alt="">
+        </p>
+</a>
+<a href="https://youtube.com/c/StakeCasinoTV">
+  <p class="font-[600] flex items-center gap-2 text-[#B1BAD3] text-[14px]">
+         
+        Youtube<img src="../assets/icons/open.svg" alt="">
+        </p>
+</a>
+<a href="https://shop.stake.com/">
+  <p class="font-[600] flex items-center gap-2 text-[#B1BAD3] text-[14px]">
+         
+    网购<img src="../assets/icons/open.svg" alt="">
+        </p>
+</a>
+     
+
+       
+     
+      </div>
+      <div class="flex-col flex items-start">
+        <p class="font-[600] py-2 text-white text-[14px]">
           支持
         </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
-          公平性
-        </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
-          联盟计划
-        </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
+        <a href="https://stake.com/zh/provably-fair" class="w-fit">
+
+          <p class="font-[600] text-[#B1BAD3] text-[14px]">
+            公平性
+          </p>
+        </a>
+        <a href="https://stake.com/zh/affiliate">
+
+          <p class="font-[600] text-[#B1BAD3] text-[14px]">
+            联盟计划
+          </p>
+        </a>
+        <a href="https://www.begambleaware.org/">
+
+<p class="font-[600] text-[#B1BAD3] text-[14px]">
+  负责任博彩
+</p>
+</a>
+<a href="https://stake.com/zh/responsible-gambling">
+  <p class="font-[600] text-[#B1BAD3] text-[14px]">
          
-          负责任博彩
+         在线支持
+      </p>
+</a>
+
+  <p class="font-[600] flex items-center gap-2 text-[#B1BAD3] text-[14px]">
+         
+         帮助中心 <img src="../assets/icons/open.svg" alt="">
         </p>
-        <p class="font-[600] text-[#B1BAD3] text-[14px]">
+
+      
+<a href="https://help.stake.com/">
+  <p class="font-[600] flex items-center gap-2 text-[#B1BAD3] text-[14px]">
          
-          在线支持
-       </p>
-       <p class="font-[600] flex items-center gap-2 text-[#B1BAD3] text-[14px]">
-         
-        帮助中心
-       </p>
+         帮助中心 <img src="../assets/icons/open.svg" alt="">
+        </p>
+</a>
+     
+
+       
+     
       </div>
+      
      
      
       <div class="flex-col items-start flex justify-center">
@@ -395,15 +493,38 @@
 
     <div class="flex lg:w-[1200px] w-full border-y-[1.5px] py-3 border-[#2F4553] justify-between items-center">
 <div class="flex items-center w-full justify-between">
-  <img src="../assets/icons/verify.png" alt="" class="h-[80px]">
-  <img src="../assets/icons/alfa-logo.svg" alt="" class="h-[60px]">
-  <img src="../assets/icons/everton-logo.svg" alt="" class="h-[60px]">
-  <img src="../assets/icons/ufc-partner.svg" alt="" class="h-[60px]">
+  <a href="https://cryptogambling.org/" class="w-fit">
+      
+    <img src="../assets/icons/verify.png" alt="" class="h-[80px]">
+    </a>
+  <!-- <img src="../assets/icons/alfa-logo.svg" alt="" class="h-[60px]"> -->
+  
+<a href="https://stake.com/zh/sponsorships/alfa-romeo-f1-team-stake" class="w-fit">
+
+  <AlfaLogo/>
+</a>
+     
+  
+<a href="https://stake.com/zh/sponsorships/everton" class="wfit">
+
+  <EvertonLogo/>
+</a>
+<a href="https://stake.com/zh" class="w-fit">
+  <UFC/>
+
+</a>
+  
+  <!-- <img src="../assets/icons/everton-logo.svg" alt="" class="h-[60px]"> -->
+  <!-- <img src="../assets/icons/ufc-partner.svg" alt="" class="h-[60px]"> -->
+  
 </div>
   </div>
   <div class="w-full h-[2px] bg-[#2F4553]"></div>
   <div class="flex items-center flex-col gap-2 justify-center">
-    <img src="../assets/icons/stake.png" class="w" >
+    <a href="https://stake.com/zh" class="w-fit">
+
+      <img src="../assets/icons/stake.png" class="w" >
+    </a>
     <p class="text-[#D9D9D9]">
       &copy; 2023 Stake.com | 版权所有
 
@@ -425,12 +546,23 @@
 import * as PIXI from 'pixi.js';
 import HeaderComponent from "../components/Header/Header.vue"
 import CurrencyComponent from './Currency.vue';
-
+// import Verify from "../assets/icons/verify.svg";
+import AlfaLogo from "../assets/icons/alfa-logo.svg";
+import EvertonLogo from "../assets/icons/everton-logo.svg";
+import UFC from "../assets/icons/ufc-partner.svg"
+export let showNotification
 
 export default {
   components:{
     CurrencyComponent,
-HeaderComponent
+    HeaderComponent,
+    EvertonLogo,
+    AlfaLogo,
+    UFC
+
+  },
+  props: {
+    showNotification
   },
   data() {
     return {

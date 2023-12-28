@@ -109,7 +109,7 @@ import SearchComponent from "./components/SearchComponent.vue"
 export let showMenu = false
 export let showNotfication = false
 export let showSearch=false
-import Notification from "/assets/icons/notification.svg"
+import Notification from "./assets/icons/notification.svg"
 import HeaderComponent from "./components/Header/Header.vue";
 
 export default {

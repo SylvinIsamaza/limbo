@@ -23,7 +23,10 @@
       </div>
       <div class="flex gap-2 items-center">
         <div class="lg:flex hidden items-center gap-2 cursor-pointer" @click="handleSearch">
-          <img src="../../assets/icons/search.svg" alt="" >
+          <div >
+
+            <SearchIcon/>
+          </div>
           <p class="text-white text-[14px]">
             搜索
           </p>
@@ -44,7 +47,7 @@
 <script>
 import CustomSelect from '../CustomSelect.vue';
 import Wallet from "../../assets/icons/wallet.svg"
-import Search from "../../assets/icons/search.svg"
+import SearchIcon from "../../assets/icons/search.svg"
 import Profile from "../../assets/icons/profile.svg"
 import Review from "../../assets/icons/review.svg"
 import Notification from "../../assets/icons/notification.svg"
@@ -54,7 +57,7 @@ export default {
   components: {
     CustomSelect,
     Wallet,
-    Search,
+    SearchIcon,
     Profile,
     Review,
     Notification

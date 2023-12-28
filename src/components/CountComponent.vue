@@ -550,6 +550,18 @@ import CurrencyComponent from './Currency.vue';
 import AlfaLogo from "../assets/icons/alfa-logo.svg";
 import EvertonLogo from "../assets/icons/everton-logo.svg";
 import UFC from "../assets/icons/ufc-partner.svg"
+
+import LiteCoinIcon from "../assets/icons/litecoin.svg"
+import EthereumIcon from "../assets/icons/ethereum.svg"
+import BitcoinIcon from "../assets/icons/bitcoin.svg"
+import TronIcon from "../assets/icons/tron.svg"
+import RippleIcon from "../assets/icons/ripple.svg"
+import BitcoinCashIcon from "../assets/icons/bitcoin-cash.svg"
+import TetherIcon from "../assets/icons/tether.svg"
+import SafeGambleIcon from "../assets/icons/safe-gamble.svg"
+import EighteenPlusIcon from "../assets/icons/18plus.svg"
+import OpenIcon from "../assets/icons/open.svg"
+
 export let showNotification
 
 export default {
@@ -558,7 +570,20 @@ export default {
     HeaderComponent,
     EvertonLogo,
     AlfaLogo,
-    UFC
+    UFC,
+    LiteCoinIcon,
+    EthereumIcon,
+    BitcoinIcon,
+    TronIcon,
+    RippleIcon,
+    BitcoinCashIcon,
+    TetherIcon,
+    SafeGambleIcon,
+    EighteenPlusIcon
+
+
+    
+
 
   },
   props: {

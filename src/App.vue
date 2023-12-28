@@ -1,101 +1,6 @@
 <template>
   <div class="flex h-screen overflow-hidden w-full">
-    <div class=" lg:h-screen   p-[10px] bg-[#0F212E] sticky right-0 top-0" >
-      <div class="flex flex-col items-center">
-        <a href="https://stake.com/zh/casino/home" :class="`flex items-center translation-all duration-75 transition-all  gap-2 ${showMenu?'flex-row w-[250px] shadow-lg gap-3':'flex-col'} `">
-          <div  :class="`w-[30px] ${!showMenu&&'shadow-xl'} py-[17px]`" @click="showMenu=!showMenu">
-          <MenuIcon/>
-          </div>
-          <div :class="{ 'w-[90px] !bg-cover flex items-center justify-center  !bg-no-repeat h-[40px] rounded-[4px]': showMenu, '!w-[2.75rem]  !bg-cover rounded-[4px] h-[2.8rem] !bg-no-repeat': !showMenu }" :style="{ background: showMenu ? 'url(\'/src/assets/icons/pokercards.jpg\')' : 'url(\'/src/assets/icons/card.png\')' } ">
-          <p class="text-center text-white" v-if="showMenu">
-            娱乐城
-          </p>
-          </div>
-        <a href="https://stake.com/zh/sports/home" :class="{ 'w-[90px] flex items-center justify-center !bg-cover  !bg-no-repeat h-[40px] rounded-[4px]': showMenu, '!w-[2.75rem] !bg-cover rounded-[4px] h-[2.8rem] !bg-no-repeat': !showMenu }" :style="{ background: showMenu ? 'url(\'/src/assets/icons/sports_orange_ball_large.jpg\')' : 'url(\'/src/assets/icons/sports-orange_ball.jpg\')' } ">
-          <p class="text-center text-white" v-if="showMenu">
-            体育
-          </p>
-        </a>
-      </a>
-        <div class="flex w-full mt-[20px]  rounded-md bg-[#1A2C38]  flex-col gap-3">
-          <div class="h-[44px] min-w-full gap-2 flex items-center px-[16px] hover:bg-secondary rounded-md cursor-pointer">
-            <div  class="w-[16px] ">
-              <PromotionIcon/>
-            </div>
-           <p class="text-[14px] text-white font-[600]" v-if="showMenu">
-            促销活动 
-           </p> 
-          </div>
-          <a href="https://stake.com/zh/affiliate" class="h-[44px] min-w-full gap-2 flex items-center px-[16px] hover:bg-secondary rounded-md cursor-pointer">
-            <div  class="w-[16px] ">
-              <AffiliateIcon/>
-            </div>
-           <p class="text-[14px] text-white font-[600]" v-if="showMenu">
-            联盟计划
-           </p> 
-          </a>
-          <a href="https://stake.com/zh/vip-club" class="h-[44px] min-w-full gap-2 flex items-center px-[16px] hover:bg-secondary rounded-md cursor-pointer">
-            <div  class="w-[16px] ">
-              <VipIcon/>
-              </div>
-           <p class="text-[14px] text-white font-[600]" v-if="showMenu">
-            VIP 俱乐部
-           </p> 
-          </a>
-          <a href="https://stake.com/zh/blog" class="h-[44px] min-w-full gap-2 flex items-center px-[16px] hover:bg-secondary rounded-md cursor-pointer">
-            <div  class="w-[16px] ">
-              <BlogIcon/>
-            </div>
-           <p class="text-[14px] text-white font-[600]" v-if="showMenu">
-            博客
-           </p> 
-          </a>
-          <a href="https://stakecommunity.com/" class="h-[44px] min-w-full gap-2 flex items-center px-[16px] hover:bg-secondary rounded-md cursor-pointer">
-            <div  class="w-[16px] ">
-              <ForumIcon/>
-            </div>
-           <p class="text-[14px] text-white font-[600]" v-if="showMenu">
-            论坛
-           </p> 
-          </a>
-        </div>
-        <div class="flex w-full mt-[20px]  rounded-md bg-[#1A2C38]  flex-col gap-3">
-          <div class="h-[44px] min-w-full gap-2 flex items-center px-[16px] hover:bg-secondary rounded-md cursor-pointer">
-            <div  class="w-[16px] ">
-              <SponsorshipIcon/>
-            </div>
-           <p class="text-[14px] text-white font-[600]" v-if="showMenu">
-            赞助活动
-           </p> 
-          </div>
-          <a href="https://stake.com/zh/responsible-gambling" class="h-[44px] min-w-full gap-2 flex items-center px-[16px] hover:bg-secondary rounded-md cursor-pointer">
-            <div  class="w-[16px] ">
-              <ShieldIcon/>
-            </div>
-           <p class="text-[14px] text-white font-[600]" v-if="showMenu">
-            负责任博彩
-           </p> 
-          </a>
-          <div class="h-[44px] min-w-full gap-2 flex items-center px-[16px] hover:bg-secondary rounded-md cursor-pointer">
-            <div  class="w-[16px] ">
-              <SupportIcon/>
-            </div>
-           <p class="text-[14px] text-white font-[600]" v-if="showMenu">
-            在线支持
-           </p> 
-          </div>
-      <div class="h-[44px] min-w-full gap-2 flex items-center px-[16px] hover:bg-secondary rounded-md cursor-pointer">
-        <div  class="w-[16px] ">
-              <LanguageIcon/>
-            </div>
-           <p class="text-[14px] text-white font-[600]" v-if="showMenu">
-            语言： 中文
-           </p> 
-          </div>
-    
-        </div>
-      </div>
-    </div>
+    <Sidebar/>
     <div class="  flex overflow-y-auto flex-col justify-center items-center flex-1  py-0 gap-4" >
     <HeaderComponent :showNotification="showNotification" @updateNotification="updateNotification" :showSearch="showSearch" @updateShowSearch="handleSearchShow"/>
     <SearchComponent v-if="showSearch"/>
@@ -141,6 +46,7 @@ import ShieldIcon from "./assets/icons/shield.svg"
 import SupportIcon from "./assets/icons/support.svg"
 import LanguageIcon from "./assets/icons/language.svg"
 import ForumIcon from "./assets/icons/forum.svg"  
+import Sidebar from "./components/Sidebar/Sidebar.vue";
 
 export default {
   data() {
@@ -166,7 +72,7 @@ export default {
     PixiCounter,
     Notification,
     HeaderComponent,
-    Close, 
+    Close,
     SearchComponent,
     MenuIcon,
     LanguageIcon,
@@ -177,9 +83,9 @@ export default {
     VipIcon,
     SponsorshipIcon,
     ShieldIcon,
-    ForumIcon
-
-  },
+    ForumIcon,
+    Sidebar
+},
   
 };
 

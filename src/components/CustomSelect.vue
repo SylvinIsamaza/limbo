@@ -1,12 +1,10 @@
 <template>
   <div class="custom-select w-fit " :tabindex="tabindex" @blur="open = false">
     <div class="selected flex w-fit gap-2" :class="{ open: open }" @click="open = !open">
-      <div class="flex w-full  items-center">
+      <div class="flex w-full items-center">
         {{ selected.name }}
-      <img :src="'/src/assets/icons/'+selected.image" alt="" class="w-[20px] h-[20px]">
+        <img :src="selectedImage" alt="" class="w-[20px] h-[20px]">
       </div>
-      
-      
     </div>
     
     <div class="items" :class="{ selectHide: !open }">
@@ -20,16 +18,16 @@
         "
         class="flex items-center gap-1"
       >
-     
         {{ option.name }}
-      <img :src="'/src/assets/icons/'+option.image" alt="" class="w-[20px] h-[20px]">
-
+        <img :src="getOptionImage(option)" alt="" class="w-[20px] h-[20px]">
       </div>
     </div>
   </div>
 </template>
 
 <script>
+
+
 export default {
   props: {
     options: {
@@ -56,6 +54,18 @@ export default {
         : null,
       open: false,
     };
+  },
+  computed: {
+    // Compute the image source for the selected option
+    selectedImage() {
+      return this.selected ? `/assets/icons/${this.selected.image}` : '';
+    },
+  },
+  methods: {
+    // Get the image source for a specific option
+    getOptionImage(option) {
+      return option ? `/assets/icons/${option.image}` : '';
+    },
   },
   mounted() {
     this.$emit("input", this.selected);

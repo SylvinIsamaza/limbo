@@ -1,9 +1,9 @@
 <template>
-  <div class="lg:h-screen lg:block hidden   p-[10px] bg-[#0F212E] sticky right-0 top-0">
+  <div class="lg:h-screen lg:block overflow-auto   w-full lg:w-fit   p-[10px] bg-[#0F212E] sticky right-0 top-0">
     <div class="flex flex-col items-center">
       <div
-        :class="`flex items-center translation-all duration-75 transition-all  gap-2 ${showMenu ? 'flex-row w-[250px] shadow-lg gap-3' : 'flex-col'} `">
-        <div :class="`w-[30px] ${!showMenu && 'shadow-xl'} py-[17px]`" @click="showMenu = !showMenu">
+        :class="`flex   items-center translation-all duration-75 transition-all  gap-2 ${showMenu ? 'flex-row w-[250px] shadow-lg gap-3' : 'flex-col'} `">
+        <div :class="`w-[30px] ${!showMenu && 'shadow-xl'} py-[17px] lg:block hidden`" @click="showMenu = !showMenu">
           <MenuIcon />
         </div>
 
@@ -22,7 +22,10 @@
           </p>
         </a>
       </div>
-      <div class="flex w-full mt-[20px]  rounded-md bg-[#1A2C38]  flex-col gap-3">
+      <div class="w-full lg:hidden block">
+        <SearchComponent/>
+      </div>
+      <div class="flex overflow-auto w-full mt-[20px]  rounded-md bg-[#1A2C38]  flex-col gap-3">
         <div class="h-[44px] min-w-full gap-2 flex items-center px-[16px] hover:bg-secondary rounded-md cursor-pointer">
           <div class="w-[16px] ">
             <PromotionIcon />
@@ -106,33 +109,30 @@
       </div>
     </div>
   </div>
-  <div class="w-full   bottom-0 left-0 bg-[#0f212e] fixed z-50 py-3 px-2  lg:hidden  ">
+  <div class="w-full   bottom-0 left-0 bg-[#0f212e] fixed z-50  px-2  lg:hidden  ">
 
 
-      <div class="flex justify-between w-full  px-2">
-        <div class="flex flex-col items-center">
-          <MenuIconMobile/>
-          <p class="text-[14px] text-white">浏览</p>
-
-        </div>
-        <div class="flex flex-col items-center">
-          <CardMobile/>
-          <p class="text-[14px] text-white">娱乐城</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <ListIcon/>
-          <p class="text-[14px] text-white">投注</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <Tennis/>
-          <p class="text-[14px] text-white">体育</p>
-        </div>
-        <div class="flex flex-col items-center">
-          <p class="text-[14px] text-white">聊天室</p>
-        </div>
-      </div>
+     <div class="flex items-center justify-between w-full px-2">
+  <div
+    v-for="(i, index) in mobileHeaderIcon"
+    @click="handleClickMenu(index)"
+    :class="`flex flex-col py-3 items-center ${
+      activeMobileHeader == index ? 'border-t-[3px] border-green-400' : ''
+    }`"
+  >
+    <div class="w-[30px]">
+      <MenuIconMobile v-if="index === 0" />
+      <ListIcon v-if="index === 2" />
+      <Tennis v-if="index === 3" />
+      <CardMobile v-if="index === 1" />
+      <ForumIcon v-if="index === 4" />
+    </div>
+    <p class="text-[14px] text-white">{{ i.name }}</p>
+  </div>
+</div>
   
   </div>
+  
 </template>
 <script >
 
@@ -156,7 +156,9 @@ import MenuIconMobile from "../../assets/icons/menu-mobile.svg"
 import CardMobile from "../../assets/icons/card-mobile.svg"
 import ListIcon from "../../assets/icons/list.svg"
 import Tennis from "../../assets/icons/tennis.svg"
-
+import SearchComponent from "../SearchComponent.vue"
+export let showSearchComponent = false;
+export let activeMobileHeader
 
 let mobileHeaderIcon = [{
   name: "浏览",
@@ -185,8 +187,18 @@ export default {
     return {
 
       showMenu: true,
+      activeMobileHeader:0,
+    
       mobileHeaderIcon: mobileHeaderIcon
     };
+  },
+  methods: {
+    handleClickMenu(value) {
+
+      console.log(value)
+      this.activeMobileHeader = value
+  
+   } 
   },
 
   components: {
@@ -205,7 +217,8 @@ export default {
     MenuIconMobile,
     CardMobile,
     ListIcon,
-    Tennis
+    Tennis,
+    SearchComponent
 
 
   },

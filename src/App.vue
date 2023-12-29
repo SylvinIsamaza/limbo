@@ -7,7 +7,7 @@
     <PixiCounter :targetNumber="100" :showNotfication="showNotification"/>
   
     </div>
-    <div class="w-[25%] h-screen lg:w-[400px] sticky top-0 left-0 bg-tertiary" v-if="showNotification">
+    <div class=" h-screen  w-full lg:w-[400px] sticky top-0 left-0 bg-tertiary" v-if="showNotification">
    <div class="py-[15px] px-3 shadow-md flex justify-between items-center " >
   <div class="flex">
 

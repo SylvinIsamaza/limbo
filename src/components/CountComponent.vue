@@ -130,16 +130,10 @@
       </button>
       
             
-      <button v-if="firstGroupActiveButton==1"  type="text" class="flex justify-center items-center mt-2 w-full bg-[#00E701] rounded-md h-[40px] text-tertiary flex-1 " @click="startAnimation">
-      
-      <p >
-        开始自动投注
-      </p> 
-      </button>
+     
       
   
-      ]
-
+    
         </div>
         <div class="flex w-full   items-center bg-tertiary flex-col py-[16px] px-[16px]">
           <div class="flex items-center w-full gap-3 justify-end">
@@ -615,7 +609,11 @@ export default {
       this.initializePixi();
     } else {
       // Using setInterval to run startAnimation() every 3000 milliseconds
-      
+      if (this.app) {
+        this.app.destroy(); // Destroy the existing PIXI.Application and release its WebGL context
+      }
+
+      this.initializePixi();
     }
   },
     initializePixi() {

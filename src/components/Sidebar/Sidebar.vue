@@ -63,7 +63,7 @@
         </a>
         <a href="https://stakecommunity.com/"
           class="h-[44px] min-w-full gap-2 flex items-center px-[16px] hover:bg-secondary rounded-md cursor-pointer">
-          <div class="w-[16px] ">
+          <div class="w-[20px] ">
             <ForumIcon />
           </div>
           <p class="text-[14px] text-white font-[600]" v-if="showMenu">
@@ -115,12 +115,12 @@
      <div class="flex items-center justify-between w-full px-2">
   <div
     v-for="(i, index) in mobileHeaderIcon"
-    @click="handleClickMenu(index)"
-    :class="`flex flex-col py-3 items-center ${
+    @click="handleClickMenu(index,i)"
+    :class="`flex flex-col w-[60px] py-3 cursor-pointer items-center ${
       activeMobileHeader == index ? 'border-t-[3px] border-green-400' : ''
     }`"
   >
-    <div class="w-[30px]">
+    <div class="w-[20px]">
       <MenuIconMobile v-if="index === 0" />
       <ListIcon v-if="index === 2" />
       <Tennis v-if="index === 3" />
@@ -162,23 +162,29 @@ export let activeMobileHeader
 
 let mobileHeaderIcon = [{
   name: "浏览",
+  type:"normal"
   // icon:<MenuIconMobile/>
 },
 {
   name: "娱乐城",
+  type: "link",
+  link:"https://stake.com/zh/casino/home"
   // icon:<CardMobile/>
 },
 {
   name: "投注",
+  type:"normal"
   // icon:<ListIcon/>
 },
 {
   name: "体育",
+  type:"normal"
   // icon:<Tennis/>
 },
 
 {
   name: "聊天室",
+  type:"normal"
   // icon:<Tennis/>
 }]
 
@@ -193,10 +199,12 @@ export default {
     };
   },
   methods: {
-    handleClickMenu(value) {
-
-      console.log(value)
+    handleClickMenu(value,item) {
       this.activeMobileHeader = value
+      if (item.type == "link") {
+        window.open(item.link,'_');
+      }
+      console.log(value)
   
    } 
   },
